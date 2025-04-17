@@ -1,0 +1,8 @@
+RewriteOptions inherit
+RewriteEngine on
+RewriteCond $1 !^(index\.php|resources|robots\.txt)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteRule ^(.*)$ index.php/$1 [L,QSA] 
+RewriteCond %{REQUEST_URI} !^/(theiotacademy|theiotacademy/.*)$
